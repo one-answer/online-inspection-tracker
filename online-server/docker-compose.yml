@@ -1,0 +1,8 @@
+version: '3'
+services:
+  webapp:
+    image: aolifu/online-server:v2
+    container_name: online-server
+    network_mode: "host"
+    environment:
+      - TZ=Asia/Shanghai

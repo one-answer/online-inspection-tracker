@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/online_inspection_tracker?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://mysql.xxlb.org:3306/online_inspection_tracker?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
-    password: 123456
+    password: Wqcwrw*8
   main:
     allow-circular-references: true
 

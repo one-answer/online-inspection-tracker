@@ -9,12 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.onlines</groupId>
-	<artifactId>onlines</artifactId>
+	<artifactId>online-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>onlines</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<docker.registry.name>aolifu</docker.registry.name>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -78,7 +79,7 @@
 		<dependency>
 			<groupId>com.microsoft.playwright</groupId>
 			<artifactId>playwright</artifactId>
-			<version>1.11.0</version>
+			<version>1.50.0</version>
 		</dependency>
 
 <!--log日志-->
@@ -151,6 +152,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>1.4.13</version>
+				<configuration>
+					<repository>${docker.registry.name}/${project.artifactId}</repository>
+					<buildArgs>
+						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+					</buildArgs>
+				</configuration>
 			</plugin>
 
 		</plugins>
