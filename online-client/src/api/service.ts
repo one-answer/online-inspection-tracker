@@ -2,10 +2,7 @@ import axios from 'axios'
 import { message } from 'ant-design-vue'
 
 // 获取当前页面的HOST
-const getHost = () => {
-  const { protocol, host } = window.location;
-  return `${protocol}//${host}`;
-};
+const getHost = () => 'https://online-server.xxlb.org';
 
 export const baseURL = getHost();
 const service = axios.create({
