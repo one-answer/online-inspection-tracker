@@ -19,7 +19,15 @@ RUN apt-get update && apt-get install -y \
     libatspi2.0-0 \
     libxdamage1 \
     libxkbcommon0 \
-    libcairo2
+    libcairo2 \
+    libx11-xcb1 \
+    libxcursor1 \
+    libxi6 \
+    libgtk-3-0 \
+    libpangocairo-1.0-0 \
+    libcairo-gobject2 \
+    libgdk-pixbuf2.0-0
+
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} /app.jar
