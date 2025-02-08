@@ -20,10 +20,15 @@ RUN apt install -y \
     libxdamage1 \
     libxkbcommon0 \
     libcairo2 \
-    openjdk-8-jdk
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-ENV PATH $JAVA_HOME/bin:$PATH
-RUN java -version
+    libx11-xcb1 \
+    libxcursor1 \
+    libxi6 \
+    libgtk-3-0 \
+    libpangocairo-1.0-0 \
+    libcairo-gobject2 \
+    fonts-noto-cjk \
+    libgdk-pixbuf2.0-0
+
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} /app.jar
