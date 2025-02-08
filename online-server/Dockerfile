@@ -1,5 +1,5 @@
-FROM debian:12
-RUN apt install -y \
+FROM adoptopenjdk/openjdk8:jre8u442-b05-ea-beta-ubuntu-nightly
+RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libnss3 \
     libnspr4 \
