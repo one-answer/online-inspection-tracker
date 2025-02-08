@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:jre8u442-b05-ea-beta-ubuntu-nightly
+FROM debian:12
 RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     libnss3 \
@@ -20,14 +20,10 @@ RUN apt-get update && apt-get install -y \
     libxdamage1 \
     libxkbcommon0 \
     libcairo2 \
-    libx11-xcb1 \
-    libxcursor1 \
-    libxi6 \
-    libgtk-3-0 \
-    libpangocairo-1.0-0 \
-    libcairo-gobject2 \
-    libgdk-pixbuf2.0-0
-
+    openjdk-8-jdk
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
+RUN java -version
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} /app.jar
