@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libasound2 \
     libatspi2.0-0 \
-    libxdamage1 \                                                                ║
-    libxkbcommon0 \                                                                          ║
+    libxdamage1 \
+    libxkbcommon0 \
     libcairo2
 VOLUME /tmp
 ARG JAR_FILE
