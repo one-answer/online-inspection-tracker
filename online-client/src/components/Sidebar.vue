@@ -1,5 +1,5 @@
 <template>
-  <a-layout-sider width="200" class="sidebar">
+  <a-layout-sider :width="collapsed ? 0 : 200" class="sidebar">
     <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" class="menu" theme="dark">
       <a-sub-menu key="sub1">
         <template #title>
@@ -27,13 +27,20 @@
 
 <script lang="ts">
 import { MonitorOutlined } from '@ant-design/icons-vue'
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, toRefs } from 'vue'
 import { useRoute } from 'vue-router';
 export default defineComponent({
   components: {
     MonitorOutlined
   },
-  setup() {
+  props: {
+    collapsed: {
+      type: Boolean,
+      required: true
+    }
+  },
+  setup(props) {
+    const { collapsed } = toRefs(props);
     let selectedKeys = ref<string[]>(['/case'])
     const route = useRoute()
 
@@ -46,7 +53,8 @@ export default defineComponent({
 
     return {
       selectedKeys,
-      openKeys: ref<string[]>(['sub1'])
+      openKeys: ref<string[]>(['sub1']),
+      collapsed
     }
   }
 })

@@ -3,7 +3,7 @@
     <a-layout class="main">
       <MyHeader />
       <a-layout>
-        <Sidebar />
+        <Sidebar :collapsed="collapsed" />
         <a-layout>
           <a-layout-content
             :style="contentStyle">
@@ -11,12 +11,18 @@
           </a-layout-content>
         </a-layout>
       </a-layout>
+      <menu-unfold-outlined
+      v-if="collapsed"
+      class="trigger"
+      @click="toggleCollapse"
+    />
+    <menu-fold-outlined v-else class="trigger" @click="toggleCollapse" />
     </a-layout>
   </a-config-provider>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import MyHeader from '@/components/Header.vue'
 import Sidebar from '@/components/Sidebar.vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
@@ -25,6 +31,16 @@ import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 
 export default defineComponent({
+  setup() {
+    const collapsed = ref(false);
+    const toggleCollapse = () => {
+      collapsed.value = !collapsed.value;
+    };
+    return {
+      collapsed,
+      toggleCollapse,
+    };
+  },
   name: 'myHome',
   components: {
     MyHeader,
@@ -52,5 +68,15 @@ export default defineComponent({
 
 .main {
   height: 100vh;
+}
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  position: absolute;
+  top: 24px;
+  left: 200px;
 }
 </style>
