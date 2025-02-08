@@ -1,5 +1,5 @@
 FROM debian:12
-RUN apt-get update && apt-get install -y \
+RUN apt install -y \
     libglib2.0-0 \
     libnss3 \
     libnspr4 \
