@@ -139,6 +139,7 @@ const columns = [
     width: 180,
     dataIndex: 'operation',
     key: 'operation',
+    fixed: 'right'
   }
 ]
 
