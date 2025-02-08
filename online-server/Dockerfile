@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 \
     libpangocairo-1.0-0 \
     libcairo-gobject2 \
+    fonts-noto-cjk \
     libgdk-pixbuf2.0-0
 
 VOLUME /tmp
